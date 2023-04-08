@@ -76,4 +76,6 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.google.code.gson:gson:$gson_version"
 
+    //Navigation Controller
+    implementation "androidx.navigation:navigation-compose:$compose_navigation_version"
 }
