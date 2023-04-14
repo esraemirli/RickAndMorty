@@ -26,11 +26,7 @@ class RickAndMortyDataSource(
                 nextKey = if (response.hasNextPage) page + 1 else null
             )
         } catch (e: Exception) {
-            LoadResult.Page(
-                data = emptyList(),
-                prevKey = null,
-                nextKey = null
-            )
+            LoadResult.Error(throwable = e)
         }
     }
 }
