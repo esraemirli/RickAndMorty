@@ -1,14 +1,18 @@
 package com.emirli.rickandmorty.ui.theme
 
+import android.annotation.SuppressLint
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
+@SuppressLint("ConflictingOnColor")
 private val ColorPalette = lightColors(
-    primary = Green,
-    secondary = Red,
-    background = LightOrange,
-    surface = LightOrange
+    primary = NeonGreen,
+    secondary = Green,
+    background = Black,
+    surface = Black,
+    onSurface = DarkGray
+
 
     /* Other default colors to override
     background = Color.White,
