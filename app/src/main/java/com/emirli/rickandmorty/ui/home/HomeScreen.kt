@@ -15,6 +15,8 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import com.emirli.rickandmorty.R
 import com.emirli.rickandmorty.data.entity.uimodel.CharacterUiModel
 import com.emirli.rickandmorty.ui.common.CharacterItemView
+import com.emirli.rickandmorty.ui.common.Error
+import com.emirli.rickandmorty.ui.common.Loading
 import com.emirli.rickandmorty.ui.common.Toolbar
 import com.emirli.rickandmorty.ui.theme.ThemeDimensions
 
@@ -31,10 +33,13 @@ fun HomeScreen(
 
         when (val currentState = lazyPagingItems.loadState.refresh) {
             is LoadState.Loading -> {
-                //TODO implement loading view
+                Loading()
             }
             is LoadState.Error -> {
-                //TODO implement error view
+                Error(
+                    message = currentState.error.localizedMessage.orEmpty(),
+                    onRetryClicked = { lazyPagingItems.refresh() }
+                )
             }
             else -> {
                 if (lazyPagingItems.itemCount > 0) {
