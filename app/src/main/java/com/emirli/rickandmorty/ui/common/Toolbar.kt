@@ -33,7 +33,6 @@ fun Toolbar(
                 Icon(
                     modifier = Modifier.padding(end = ThemeDimensions.current.xxs),
                     painter = painterResource(id = R.drawable.ic_back),
-                    //TODO beyaz?
                     contentDescription = null
                 )
             }
