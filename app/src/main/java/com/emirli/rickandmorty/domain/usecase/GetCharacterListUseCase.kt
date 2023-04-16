@@ -1,6 +1,5 @@
 package com.emirli.rickandmorty.domain.usecase
 
-import android.accounts.NetworkErrorException
 import com.emirli.rickandmorty.data.entity.mapper.CharacterListUiModelMapper
 import com.emirli.rickandmorty.data.entity.uimodel.CharacterListUiModel
 import com.emirli.rickandmorty.data.repository.RickAndMortyRepository
@@ -19,7 +18,7 @@ class GetCharacterListUseCase @Inject constructor(
         ) {
             is Result.Success -> mapper.map(response.data)
             is Result.Error ->
-                throw NetworkErrorException("FetchCharacterListUseCase Network Error")
+                throw Exception(response.message)
         }
     }
 
