@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailViewModel @Inject constructor(
     private val getCharacterDetailUseCase: GetCharacterDetailUseCase,
-    savedStateHandle: SavedStateHandle
+    private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val _stateFlow = MutableStateFlow<DetailState>(DetailState.Loading)
@@ -34,6 +34,12 @@ class DetailViewModel @Inject constructor(
         viewModelScope.launch(handler) {
             val uiModel = getCharacterDetailUseCase.run(GetCharacterDetailUseCase.Params(id = id))
             pushState(DetailState.Content(uiModel = uiModel))
+        }
+    }
+
+    fun retry() {
+        savedStateHandle.get<String>(CHARACTER_ID)?.let { id ->
+            fetchCharacterDetail(id.toInt())
         }
     }
 

@@ -1,4 +1,4 @@
-package com.emirli.rickandmorty.ui.common
+package com.emirli.rickandmorty.ui.home.view
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -10,10 +10,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import com.emirli.rickandmorty.ui.common.TOOLBAR_HEIGHT
 import com.emirli.rickandmorty.ui.home.GRID_COUNT
 import com.emirli.rickandmorty.ui.theme.ThemeDimensions
-
-private const val TOOLBAR_HEIGHT = 75
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

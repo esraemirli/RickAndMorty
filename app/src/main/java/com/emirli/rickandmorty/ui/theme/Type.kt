@@ -17,6 +17,12 @@ val Typography = Typography(
         color = Color.White
     ),
     subtitle1 = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp,
+        letterSpacing = 0.15.sp,
+        color = Color.White
+    ),
+    subtitle2 = TextStyle(
         fontWeight = FontWeight.Normal,
         fontSize = 18.sp,
         letterSpacing = 0.15.sp,
@@ -26,6 +32,12 @@ val Typography = Typography(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp
+    ),
+    body2 = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp,
+        color = Color.White
     ),
     caption = TextStyle(
         fontWeight = FontWeight.Normal,

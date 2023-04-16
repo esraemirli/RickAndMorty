@@ -6,5 +6,7 @@ data class CharacterUiModel(
     val image: String,
     val species: String,
     val status: String,
-    val locationName: String
+    val locationName: String,
+    val genderIcon: Int? = null,
+    val episodes: List<String>? = null
 )

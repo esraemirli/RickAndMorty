@@ -2,6 +2,7 @@ package com.emirli.rickandmorty.ui.common
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
@@ -20,7 +21,8 @@ import com.emirli.rickandmorty.ui.theme.ThemeDimensions
 fun Toolbar(
     modifier: Modifier = Modifier,
     title: String,
-    iconVisible: Boolean
+    iconVisible: Boolean,
+    onIconClicked: () -> Unit = {}
 ) {
     Column(
         modifier = modifier.fillMaxWidth()
@@ -31,8 +33,11 @@ fun Toolbar(
         ) {
             if (iconVisible) {
                 Icon(
-                    modifier = Modifier.padding(end = ThemeDimensions.current.xxs),
+                    modifier = Modifier
+                        .padding(end = ThemeDimensions.current.xxs)
+                        .clickable { onIconClicked() },
                     painter = painterResource(id = R.drawable.ic_back),
+                    tint = MaterialTheme.colors.onPrimary,
                     contentDescription = null
                 )
             }

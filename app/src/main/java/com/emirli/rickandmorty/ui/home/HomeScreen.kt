@@ -14,9 +14,9 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.emirli.rickandmorty.R
 import com.emirli.rickandmorty.data.entity.uimodel.CharacterUiModel
-import com.emirli.rickandmorty.ui.common.CharacterItemView
+import com.emirli.rickandmorty.ui.home.view.CharacterItemView
 import com.emirli.rickandmorty.ui.common.Error
-import com.emirli.rickandmorty.ui.common.Loading
+import com.emirli.rickandmorty.ui.home.view.Loading
 import com.emirli.rickandmorty.ui.common.Toolbar
 import com.emirli.rickandmorty.ui.theme.ThemeDimensions
 import com.emirli.rickandmorty.util.navigation.Screen
