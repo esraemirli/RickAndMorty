@@ -7,4 +7,5 @@ import com.emirli.rickandmorty.util.Result
 interface RickAndMortyRepository {
 
     suspend fun getCharacterList(page: Int): Result<BaseResponse<List<Character>>>
+    suspend fun getCharacterDetail(id: Int): Result<Character>
 }

@@ -20,7 +20,7 @@ fun NavGraph(navController: NavHostController) {
         composable(route = Screen.Home.route) {
             HomeScreen(navController)
         }
-        composable(route = Screen.CharacterDetail.route + "/{charId}") {
+        composable(route = Screen.CharacterDetail.route + "/{$CHARACTER_ID}") {
             DetailScreen(navController)
         }
     }
