@@ -19,6 +19,7 @@ import com.emirli.rickandmorty.ui.common.Error
 import com.emirli.rickandmorty.ui.common.Loading
 import com.emirli.rickandmorty.ui.common.Toolbar
 import com.emirli.rickandmorty.ui.theme.ThemeDimensions
+import com.emirli.rickandmorty.util.navigation.Screen
 
 const val GRID_COUNT = 2
 
@@ -46,7 +47,7 @@ fun HomeScreen(
                     ContentView(
                         items = lazyPagingItems,
                         onItemClicked = { id ->
-                            //TODO navigate to Detail Screen
+                            navHostController.navigate(Screen.CharacterDetail.route + "/$id")
                         }
                     )
                 }

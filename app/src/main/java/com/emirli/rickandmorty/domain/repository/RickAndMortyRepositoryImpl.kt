@@ -14,12 +14,17 @@ class RickAndMortyRepositoryImpl @Inject constructor(
 
     override suspend fun getCharacterList(page: Int): Result<BaseResponse<List<Character>>> {
         val response = api.getCharacterList(page)
-        return response.getResults()
+        return getResults(response)
     }
 
-    private fun Response<BaseResponse<List<Character>>>.getResults() =
-        if (this.isSuccessful) {
-            val body = this.body()
+    override suspend fun getCharacterDetail(id: Int): Result<Character> {
+        val response = api.getCharacterDetail(id)
+        return getResults(response)
+    }
+
+    private fun <T : Any> getResults(response: Response<T>): Result<T> =
+        if (response.isSuccessful) {
+            val body = response.body()
             if (body != null) Result.Success(body)
             else Result.Error("Empty response body")
         } else {
