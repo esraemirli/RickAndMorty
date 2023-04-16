@@ -16,7 +16,7 @@ interface RickAndMortyAPI {
 
     @GET("character/{charId}")
     suspend fun getCharacterDetail(
-        @Path("charId") page: Int?
+        @Path("charId") id: Int?
     ): Response<Character>
 
     companion object {
