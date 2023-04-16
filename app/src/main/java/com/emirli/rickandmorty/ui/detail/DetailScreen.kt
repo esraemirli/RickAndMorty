@@ -1,14 +1,14 @@
 package com.emirli.rickandmorty.ui.detail
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.emirli.rickandmorty.ui.common.Error
-import com.emirli.rickandmorty.ui.common.Loading
+import com.emirli.rickandmorty.ui.detail.view.ContentView
+import com.emirli.rickandmorty.ui.detail.view.Loading
 
 @Composable
 fun DetailScreen(
@@ -21,15 +21,19 @@ fun DetailScreen(
         when (currentState) {
             is DetailState.Loading -> Loading()
             is DetailState.Content -> {
-                //TODO will implement
-            }
-            is DetailState.Error ->
-                Error(
-                    message = currentState.errorMessage,
-                    onRetryClicked = {
-                        //TODO will implement
+                ContentView(
+                    uiModel = currentState.uiModel,
+                    onBackClicked = {
+                        navHostController.popBackStack()
                     }
                 )
+            }
+            is DetailState.Error -> {
+                Error(
+                    message = currentState.errorMessage,
+                    onRetryClicked = { viewModel.retry() }
+                )
+            }
         }
     }
 }

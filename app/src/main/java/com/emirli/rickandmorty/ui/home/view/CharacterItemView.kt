@@ -1,4 +1,4 @@
-package com.emirli.rickandmorty.ui.common
+package com.emirli.rickandmorty.ui.home.view
 
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
@@ -75,7 +75,7 @@ fun CharacterItemView(
         ) {
             Text(
                 text = uiModel.name,
-                style = MaterialTheme.typography.subtitle1,
+                style = MaterialTheme.typography.subtitle2,
                 textAlign = TextAlign.Center,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1
