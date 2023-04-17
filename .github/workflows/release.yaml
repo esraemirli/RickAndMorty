@@ -1,0 +1,56 @@
+name: 'Release'
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - closed
+
+jobs:
+  apk:
+    name: build apk
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: checkout repository
+        uses: actions/checkout@v3
+      - id: build
+        name: build apk
+        run: ./gradlew assembleDebug --stacktrace
+      - id: upload
+        name: upload apk
+        uses: action/upload-artifact@v1
+        with:
+          name: apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+  release:
+    name: release apk
+    needs: apk
+    runs-on: ubuntu-latest
+    steps:
+      - id: download
+        name: download apk from build
+        uses: actions/download-artifact@v1
+        with:
+          name: apk
+      - id: create_release
+        name: create release
+        uses: actions/create-relase@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.run_number }}
+          release_name: ${{ github.event.repository.name }} v${{ github.run_number }}
+      - id: upload_release
+        name: upload release apk
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.output.upload_url }}
+          asset_path: apk/app-debug.apk
+          asset_name: ${{ github.event.repository.name }}.apk
+          asset_content_type: application/zip
+
+
