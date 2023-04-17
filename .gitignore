@@ -14,3 +14,4 @@
 /.gradle/buildOutputCleanup/outputFiles.bin
 /.gradle/7.4/fileHashes/resourceHashesCache.bin
 .idea
+.DS_Store
