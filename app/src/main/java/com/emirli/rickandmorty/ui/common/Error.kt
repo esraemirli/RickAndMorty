@@ -13,6 +13,8 @@ import com.airbnb.lottie.compose.*
 import com.emirli.rickandmorty.R
 import com.emirli.rickandmorty.ui.theme.ThemeDimensions
 
+private const val RETRY_BUTTON_SIZE = 250
+
 @Composable
 fun Error(
     message: String,
@@ -20,7 +22,7 @@ fun Error(
 ) {
 
     Column(
-        modifier = Modifier.padding(top = ThemeDimensions.current.sm),
+        modifier = Modifier.padding(ThemeDimensions.current.sm),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
@@ -31,7 +33,7 @@ fun Error(
             iterations = LottieConstants.IterateForever
         )
         LottieAnimation(
-            modifier = Modifier.size(250.dp),
+            modifier = Modifier.size(ANIMATION_IMAGE_SIZE.dp),
             composition = composition,
             progress = { animationState },
         )
@@ -43,7 +45,7 @@ fun Error(
         )
 
         Button(
-            modifier = Modifier.width(250.dp),
+            modifier = Modifier.width(RETRY_BUTTON_SIZE.dp),
             shape = MaterialTheme.shapes.large,
             onClick = onRetryClicked
         ) {
