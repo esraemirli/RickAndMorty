@@ -36,7 +36,7 @@ jobs:
           name: apk
       - id: create_release
         name: create release
-        uses: actions/create-relase@v1
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
