@@ -1,21 +1,19 @@
 package com.emirli.rickandmorty.ui.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
+import android.annotation.SuppressLint
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 
-private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
-)
+@SuppressLint("ConflictingOnColor")
+private val ColorPalette = lightColors(
+    primary = NeonGreen,
+    onPrimary = White,
+    secondary = Green,
+    background = Black,
+    surface = Black,
+    onSurface = DarkGray
 
-private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
 
     /* Other default colors to override
     background = Color.White,
@@ -28,15 +26,9 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun RickAndMortyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
-
+fun RickAndMortyTheme(content: @Composable () -> Unit) {
     MaterialTheme(
-        colors = colors,
+        colors = ColorPalette,
         typography = Typography,
         shapes = Shapes,
         content = content
